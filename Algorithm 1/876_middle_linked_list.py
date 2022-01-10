@@ -10,11 +10,18 @@ class ListNode:
 
 
 class Solution:
-    def middleNode(head: Optional[ListNode]) -> Optional[ListNode]:
-        print(head)
-        mid = math.floor(len(head) / 2) + 1
-        print(mid)
-        return head[mid:]
+    def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        singleStep = head
+        doubleStep = head
+        while doubleStep is not None:            
+            doubleStep = (doubleStep.next)
+            if(doubleStep is not None):
+                doubleStep = doubleStep.next
+            else:
+                return singleStep
+            singleStep = singleStep.next
+            
+        return singleStep
     
     inp = [1,2,3,4,5]
     outp = middleNode(inp)
